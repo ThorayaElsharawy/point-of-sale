@@ -1,0 +1,228 @@
+<mat-toolbar class="toolbar" color="primary">
+  <mat-toolbar-row>
+    <span class="toolbar_logo">POS</span>
+    <div class="toolbar_direction">
+      <button mat-button>Products</button>
+
+      <!-- <span style="cursor: pointer;"> </span> -->
+      <span> / </span>
+      <button mat-button>New Product</button>
+
+    </div>
+
+    <span class="example-spacer"></span>
+
+    <div class="toolbar_content">
+      <!-- time -->
+      <button mat-button>04:13 am 24-10-2020</button>
+
+      <!-- language button -->
+      <button class="toolbar_lang" mat-button [matMenuTriggerFor]="menu">
+        <img class="toolbar_flag" src="https://demo.phppointofsale.com/assets/assets/images/flags/english.png"
+          alt="flag">
+        <span>English</span>
+        <mat-icon class="toolbar_lang-icon">keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+
+      <!-- notification button -->
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon matBadge="10" matBadgeColor="warn">notification_important
+        </mat-icon>
+        <span class="cdk-visually-hidden">
+        </span>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img class="toolbar_img" src="https://demo.phppointofsale.com/assets/assets/images/avatar-default.jpg" alt="">
+        <span>John Doe</span>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav class="sidenav" mode="side" opened>
+
+    <mat-nav-list class="sidenav_list">
+      <a mat-list-item class="sidenav_item sidenav_item-1">
+        <mat-icon aria-hidden="false" class="sidenav_icon">shopping_cart</mat-icon>
+        Products
+      </a>
+      <a mat-list-item class="sidenav_item sidenav_item-2">
+        <mat-icon aria-hidden="false" class="sidenav_icon">style</mat-icon>
+        Categories
+      </a>
+      <a mat-list-item class="sidenav_item sidenav_item-3">
+        <mat-icon aria-hidden="false" class="sidenav_icon">bookmark</mat-icon>
+        Brands
+      </a>
+      <a mat-list-item class="sidenav_item sidenav_item-4">
+        <mat-icon aria-hidden="false" class="sidenav_icon">layers</mat-icon>
+        Items
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content class="main_content">
+
+    <mat-card style="box-shadow: none;" class="main_content-title">Products</mat-card>
+
+    <mat-card style="box-shadow: none;">
+      <mat-tab-group style="box-shadow: none;" mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+
+        <mat-tab label="First">
+          <form style="margin: 50px 0;" class="example-form">
+
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+
+                <td>
+                  <mat-label class="label">Select Category</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down</mat-icon>
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of options" [value]="option">
+                        {{option}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-label class="label">Select Brand</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down</mat-icon>
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of options" [value]="option">
+                        {{option}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-label class="label">Select Unit</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down</mat-icon>
+
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of options" [value]="option">
+                        {{option}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-label class="label">Barcode Code</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input matInput type="text">
+                  </mat-form-field>
+                </td>
+
+                <td>
+                  <mat-label class="label">Product Cost</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input matInput type="number">
+                  </mat-form-field>
+                </td>
+
+                <td>
+                  <mat-label class="label">Product Sale Price</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input matInput type="number">
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <mat-label class="label">Product Alert Quantity</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input matInput type="number">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-label class="label">Tax Type</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down</mat-icon>
+
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of options" [value]="option">
+                        {{option}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </td>
+                <td>
+
+                  <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)"
+                    accept=".csv" />
+                  <button mat-flat-button color="primary" (click)="csvInput.click()">
+                    Choose File
+                  </button>
+                </td>
+
+              </tr>
+            </table>
+
+
+
+          </form>
+
+          <mat-divider></mat-divider>
+
+          <section style="margin-top: 5em;" class="example-section">
+            <mat-checkbox class="example-margin label" color="primary">Is Published</mat-checkbox>
+          </section>
+
+          <form style="margin-top: 1em;">
+            <mat-label class="label">Product Name</mat-label>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <input matInput type="text">
+            </mat-form-field>
+          </form>
+
+          <!-- <mat-divider></mat-divider> -->
+
+          <button mat-raised-button color="primary" style="margin-top: 1em; float: right;">Save</button>
+
+
+        </mat-tab>
+
+        <mat-tab label="Second"> Content 2 </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+        <mat-tab label="fourth"> Content 4 </mat-tab>
+
+      </mat-tab-group>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <td>
+                  <mat-label class="label">first name</mat-label>
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-select style="font-size: 13px;">
+                      <mat-option value="option">Option</mat-option>
+                      <mat-option value="option">Option</mat-option>
+                      <mat-option value="option">Option</mat-option>
+                      <mat-option value="option">Option</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td> -->

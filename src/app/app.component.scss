@@ -1,0 +1,168 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  font-weight: inherit;
+}
+
+.example-container {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  right: 0;
+  background: rgb(228, 228, 228);
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  padding: 0 50px;
+
+  &_logo {
+    font-size: 30px;
+  }
+
+  &_direction {
+    font-size: 14px;
+    font-weight: 300;
+    margin-left: 7em;
+
+  }
+
+  &_content {
+    font-size: 14px;
+    font-weight: 300;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  &_button {
+    font-weight: inherit;
+  }
+
+  &_lang {
+    margin-right: -10px;
+    &-icon {
+      margin-left: -4px;
+      font-size: 20px;
+      margin-top: 7px;
+    }
+  }
+
+
+  &_flag {
+    width: 25px;
+    height: auto;
+    margin-right: 10px;
+  }
+
+  &_img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    margin-right: 30px;
+  }
+}
+
+.sidenav {
+  width: 220px;
+  box-shadow: 5px 0 10px #d1d1d1;
+  border: none;
+
+  &_item {
+    font-weight: 300;
+    color: #585858;
+    transition: all .2s;
+
+    &-1:hover::after { background-color: #f7941d }
+    &-2:hover::after { background-color: #fb5d5d }
+    &-3:hover::after { background-color: #9244CC }
+    &-4:hover::after { background-color: #6fd64b } 
+  }
+
+  &_item:hover {
+    background-color: #e3e3e3;
+    padding-left: 5px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0px;
+      height: 100%;
+      width: 4px;
+    }
+  }
+
+  &_icon {
+    font-weight: 300;
+    font-size: 20px;
+    margin: 7px 18px 0px 8px;
+
+  }
+}
+
+.main_content {
+  padding: 10px;
+
+  &-title {
+    box-shadow: none;
+    font-size: 20px;
+    font-weight: 300;
+    color: #3f51b5;
+    margin-bottom: 15px;
+  }
+
+  &-tap {
+    padding-top: 40px;
+  }
+
+  &-form {
+    margin-top: 40px;
+    // border: 1px solid;
+    display: flex;
+    
+  }
+}
+
+.label {
+  font-weight: 300;
+  color: #6d6d6d;
+  font-size: 15px;
+}
+
+div.mat-form-field-infix { padding: 0 3px 10px 3px !important }
+.mat-form-field-outline:hover  { border: 2px solid red;}
+.example-form {
+  // min-width: 150px;
+  // max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 25px;
+}
+
+.mat-tab-header { 
+  background-color: #e4e4e4;
+  box-shadow: 0 0 10px #c0c0c0;
+}
+
+div.mat-ink-bar {
+  background-color: red;
+}
