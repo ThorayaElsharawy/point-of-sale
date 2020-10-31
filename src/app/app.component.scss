@@ -166,3 +166,27 @@ td {
 div.mat-ink-bar {
   background-color: red;
 }
+
+/////////////////////////////////////////////PRODUCT LIST
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+
+// <div class="main_content-header">
+// <span class="main_content-title">Product List</span>
+// <button style="float: right;" mat-raised-button color="primary">
+//   <mat-icon style="margin-right: 5px;">add</mat-icon>
+//   Add New Product
+// </button>
+// </div>
+

@@ -3,7 +3,7 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 export class ProductName {
     static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
-        if ((control.value as string).indexOf(' ') >= 0) {
+        if (control.value && (control.value as string).indexOf(' ') >= 0) {
             return { cannotContainSpace: true }
         }
         return null
@@ -18,7 +18,6 @@ export class ProductName {
                 } else {
                     resolve(null)
                 }
-
             }, 1000);
         })
     }
