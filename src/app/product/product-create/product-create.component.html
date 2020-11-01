@@ -1,0 +1,152 @@
+<mat-card style="box-shadow: none;" class="main_content-title">
+    <span>Product Create</span>
+
+    <button style="float: right;" mat-raised-button color="primary">
+        <mat-icon style="margin-right: 5px;">list</mat-icon>
+        List All Product
+    </button>
+
+</mat-card>
+<mat-card style="box-shadow: none;">
+    <mat-tab-group style="box-shadow: none;" mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+
+        <mat-tab label="Product Create">
+            <form [formGroup]="form" (ngSubmit)="onCreateProduct()" style="margin: 50px 0;" class="example-form">
+                <div style="color: red; " *ngIf="form.errors">There is something wrong</div>
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-label class="label">Product Name</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="name" matInput type="text">
+                                <mat-hint *ngIf="name.pending">checking for uniqueness</mat-hint>
+                                <mat-error *ngIf="name.touched && name.invalid">
+                                    <span *ngIf="name.errors.required"> Enter the name of product</span>
+                                    <span *ngIf="name.errors.minlength">Name of product should be minumum
+                                        {{ name.errors.minlength.requiredLength }} characters</span>
+                                    <span *ngIf="name.errors.cannotContainSpace">Product name cannot contain
+                                        space</span>
+                                    <span *ngIf="name.errors.shouldBeUnique">Product name is already taken</span>
+                                </mat-error>
+                            </mat-form-field>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <mat-label class="label">Select Category</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="categoryId" type="text" aria-label="Number" matInput
+                                    [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down
+                                </mat-icon>
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of options" [value]="option">
+                                        {{option}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-label class="label">Select Brand</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="brandId" type="text" aria-label="Number" matInput
+                                    [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down
+                                </mat-icon>
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of options" [value]="option">
+                                        {{option}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-label class="label">Select Unit</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="unitId" type="text" aria-label="Number" matInput
+                                    [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down
+                                </mat-icon>
+
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of options" [value]="option">
+                                        {{option}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <mat-label class="label">Barcode Code</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="barcode" matInput type="text">
+                            </mat-form-field>
+                        </td>
+
+                        <td>
+                            <mat-label class="label">Product Price</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="price" matInput type="number">
+                            </mat-form-field>
+                        </td>
+
+                        <td>
+                            <mat-label class="label">Product Sale Price</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="salePrice" matInput type="number">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-label class="label">Product Alert Quantity</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="quantity" matInput type="number">
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-label class="label">Tax Type</mat-label>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                                <input formControlName="typeId" type="text" aria-label="Number" matInput
+                                    [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down
+                                </mat-icon>
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of options" [value]="option">
+                                        {{option}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <input #csvInput hidden="true" type="file" onclick="this.value=null"
+                                (change)="csvInputChange($event)" accept=".csv" />
+                            <button class="example-full-width" mat-flat-button color="primary"
+                                (click)="csvInput.click()">
+                                Choose File
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="example-full-width" cellspacing="0">
+                    <mat-label class="label">Product Description</mat-label>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <textarea formControlName="description" matInput></textarea>
+                    </mat-form-field>
+                </table>
+                <button mat-raised-button color="primary" type="submit"
+                    style="margin-top: 1em; float: right;">Save</button>
+            </form>
+        </mat-tab>
+
+        <mat-tab label="Images"> Content 2 </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+        <mat-tab label="fourth"> Content 4 </mat-tab>
+
+    </mat-tab-group>
+</mat-card>

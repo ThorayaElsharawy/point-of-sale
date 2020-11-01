@@ -27,10 +27,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductCreateComponent } from './product/product-create/product-create.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductListComponent, ProductCreateComponent, ProductEditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,7 +64,10 @@ import { MatTableModule } from '@angular/material/table';
     MatCheckboxModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatBottomSheetModule,
+    MatPaginatorModule,
+    MatSortModule
 
   ],
   providers: [],

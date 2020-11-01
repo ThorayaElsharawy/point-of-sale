@@ -1,22 +1,16 @@
-import { ProductService } from './services/product.service';
-import { ProductName } from './productName.validators';
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ProductService } from 'src/app/services/product.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-
-export interface User {
-  name: string;
-}
+import { ProductName } from 'src/app/productName.validators';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  selector: 'app-product-create',
+  templateUrl: './product-create.component.html',
+  styleUrls: ['./product-create.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'point-of-sale';
+export class ProductCreateComponent implements OnInit {
+
   myControl = new FormControl();
 
   options: string[] = ['One', 'Two', 'Three'];
@@ -71,4 +65,6 @@ export class AppComponent implements OnInit {
   csvInputChange(fileInputEvent: any) {
     console.log(fileInputEvent.target.files[0]);
   }
+
+
 }
