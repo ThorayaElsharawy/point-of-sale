@@ -33,6 +33,7 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -67,7 +68,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatBottomSheetModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatExpansionModule
 
   ],
   providers: [],
