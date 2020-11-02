@@ -1,8 +1,14 @@
+import { Observable } from 'rxjs';
 import { ProductService, Product } from 'src/app/services/product.service';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute } from '@angular/router';
+import { combineLatest } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
+
 
 @Component({
   selector: 'app-product-list',
@@ -29,20 +35,27 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+  constructor(private _productService: ProductService,
+    private _route: ActivatedRoute) { }
+
+  ngOnInit() {
+    combineLatest([
+      this._route.paramMap,
+      this._route.queryParamMap
+    ]).pipe(
+      switchMap(combined => {
+        console.log(combined[0])
+        console.log(combined[1])
+        return this._productService.getProducts()
+      })).subscribe(product => {
+        this.dataSource.data = product;
+        console.log(product)
+      })
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-
-  }
-
-  constructor(private _productService: ProductService) { }
-
-  ngOnInit() {
-    this._productService.getProducts().subscribe(response => {
-      this.dataSource.data = response;
-      console.log(response)
-    });
   }
 
   applyFilter(event: Event) {

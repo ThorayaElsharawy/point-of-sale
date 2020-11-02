@@ -1,7 +1,7 @@
-<mat-card style="box-shadow: none;" class="main_content-title">
+<mat-card style="box-shadow: none; display: flex; justify-content: space-between; align-items: center;"
+    class="main_content-title">
     <span>Product List</span>
-
-    <button style="float: right;" mat-raised-button color="primary">
+    <button routerLink="/product-create" mat-raised-button color="primary">
         <mat-icon style="margin-right: 5px;">add</mat-icon>
         Add New Product
     </button>
@@ -14,13 +14,7 @@
     </mat-form-field>
 
     <div class="mat-elevation-z8">
-
-
         <table mat-table matSort style="box-shadow: none;" [dataSource]=" dataSource" class="mat-elevation-z8">
-
-            <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
             <!-- Name Column -->
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
@@ -80,7 +74,7 @@
             <!-- CreatedAt Column -->
             <ng-container matColumnDef="createdAt">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>CreatedAt</th>
-                <td mat-cell *matCellDef="let element"> {{ element?.createdAt | date: 'short' }} </td>
+                <td mat-cell *matCellDef="let element"> {{ element?.createdAt | date: 'short' }}</td>
             </ng-container>
 
             <!-- UpdatedAt Column -->
@@ -102,7 +96,7 @@
                             <mat-icon>remove_red_eye</mat-icon>
                             <span>Show</span>
                         </button>
-                        <button mat-menu-item>
+                        <button mat-menu-item [routerLink]="['/product-edit', element.id, element.name]">
                             <mat-icon>edit</mat-icon>
                             <span>Edit</span>
                         </button>

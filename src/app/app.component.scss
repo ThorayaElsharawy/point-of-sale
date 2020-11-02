@@ -115,12 +115,20 @@ button {
 
 .main_content {
   padding: 10px;
+
 }
 
+.label {
+  font-weight: 300;
+  color: #6d6d6d;
+  font-size: 15px;
+}
 
 div.mat-form-field-infix { padding: 0 3px 10px 3px !important }
 .mat-form-field-outline:hover  { border: 2px solid red;}
 .example-form {
+  // min-width: 150px;
+  // max-width: 500px;
   width: 100%;
 }
 
