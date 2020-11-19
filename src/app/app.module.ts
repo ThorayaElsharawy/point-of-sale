@@ -34,11 +34,14 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { UnitCreateComponent } from './unit/unit-create/unit-create.component';
+import { UnitEditComponent } from './unit/unit-edit/unit-edit.component';
+import { UnitListComponent } from './unit/unit-list/unit-list.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, ProductListComponent, ProductCreateComponent, ProductEditComponent],
+  declarations: [AppComponent, ProductListComponent, ProductCreateComponent, ProductEditComponent, UnitCreateComponent, UnitEditComponent, UnitListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

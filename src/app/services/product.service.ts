@@ -22,8 +22,9 @@ export interface Product {
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
-  private url = 'http://localhost:8080/api/v1/products';
+  private url = 'http://localhost:8080/api/v1/products/';
 
   constructor(private _http: HttpClient) { }
 
@@ -44,6 +45,25 @@ export class ProductService {
         return throwError(error.message || 'Server Error ')
       })
     )
+  }
+
+  editProduct(id, product): Observable<Product> {
+    return this._http.put<Product>(this.url + id, product).pipe(
+      catchError(error => {
+        if (error.status === 400) {
+          return throwError(error.error['message'] || 'Bad Request')
+        }
+        if (error.status === 404) {
+          return throwError(error.error['message'] || 'Server Not Found ')
+
+        }
+        return throwError(error.message || 'Server Error ')
+      })
+    )
+  }
+
+  deleteProduct(id): Observable<Product> {
+    return this._http.delete<Product>(this.url + id)
   }
 
 }

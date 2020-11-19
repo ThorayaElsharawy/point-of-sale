@@ -100,7 +100,7 @@
                             <mat-icon>edit</mat-icon>
                             <span>Edit</span>
                         </button>
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="onDeleteProduct(element?.id)">
                             <mat-icon>delete_outline
                             </mat-icon>
                             <span>Delete</span>

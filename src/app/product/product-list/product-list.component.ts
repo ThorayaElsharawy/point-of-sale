@@ -63,5 +63,13 @@ export class ProductListComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  onDeleteProduct(id) {
+    console.log(id)
+    this._productService.deleteProduct(id).subscribe(response => {
+      console.log(response)
+    })
+
+  }
+
 }
 
