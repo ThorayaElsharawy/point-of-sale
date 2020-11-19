@@ -1,1 +1,20 @@
-<p>unit-create works!</p>
+<span class="main_content-title">Unit Create</span>
+
+<mat-dialog-content class="mat-typography" style="margin-top: 20px;">
+    <form [formGroup]="form" (ngSubmit)="onCreateUnit()">
+        <mat-label class="label">Unit Name</mat-label>
+        <mat-form-field appearance="outline" class="example-full-width">
+            <input matInput formControlName="name" type="text">
+        </mat-form-field>
+
+
+        <mat-label class="label">Unit Description</mat-label>
+        <mat-form-field appearance="outline" class="example-full-width">
+            <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+        <button style="margin-top: 1em; float: right;" mat-button mat-dialog-close>Cancel</button>
+
+        <button mat-raised-button color="primary" type="submit" style="margin-top: 1em; float: right;">Save</button>
+
+    </form>
+</mat-dialog-content>

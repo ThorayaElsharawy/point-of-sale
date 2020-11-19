@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+  }
+    
+  .mat-form-field {
+    font-size: 14px;
+    width: 30%;
+  }
+    
+  td, th {
+    width: auto;
+    overflow: hidden;
+  }
+  
+  .main_content {
+    padding: 10px;
+    &-title {
+      box-shadow: none;
+      font-size: 20px;
+      font-weight: 300;
+      color: #3f51b5;
+      margin-bottom: 15px;
+    }
+  }
+  

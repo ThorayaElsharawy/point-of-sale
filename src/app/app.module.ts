@@ -37,11 +37,20 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { UnitCreateComponent } from './unit/unit-create/unit-create.component';
 import { UnitEditComponent } from './unit/unit-edit/unit-edit.component';
 import { UnitListComponent } from './unit/unit-list/unit-list.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
 @NgModule({
-  declarations: [AppComponent, ProductListComponent, ProductCreateComponent, ProductEditComponent, UnitCreateComponent, UnitEditComponent, UnitListComponent],
+  declarations: [
+    AppComponent,
+    ProductListComponent,
+    ProductCreateComponent,
+    ProductEditComponent,
+    UnitCreateComponent,
+    UnitEditComponent,
+    UnitListComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -72,7 +81,8 @@ import { UnitListComponent } from './unit/unit-list/unit-list.component';
     MatBottomSheetModule,
     MatPaginatorModule,
     MatSortModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
 
   ],
   providers: [],

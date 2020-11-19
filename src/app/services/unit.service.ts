@@ -27,7 +27,7 @@ export class UnitService {
   }
 
   editUnit(id, unit): Observable<Unit> {
-    return this._http.put<Unit>(this._http + id, unit)
+    return this._http.put<Unit>(this.url + id, unit)
   }
 
   deleteUnit(id): Observable<Unit> {
