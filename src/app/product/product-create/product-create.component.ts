@@ -1,3 +1,5 @@
+import { UnitService, Unit } from 'src/app/services/unit.service';
+import { Category, CategoryService } from './../../services/category.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/services/product.service';
@@ -13,16 +15,31 @@ export class ProductCreateComponent implements OnInit {
 
   myControl = new FormControl();
 
-  options: string[] = ['One', 'Two', 'Three'];
+  options = ['one', 'two', 'three']
+  categories: Category[] = [];
+  units: Unit[] = [];
 
   form;
 
   constructor(private _fb: FormBuilder,
     private _productService: ProductService,
+    private _categoryService: CategoryService,
+    private _unitService: UnitService,
     private _snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
+    this._categoryService.getCategories().subscribe(response => {
+      this.categories = response;
+      console.log(response)
+    })
+
+    this._unitService.getUnits().subscribe(response => {
+      this.units = response;
+      console.log(response)
+
+    })
+
     this.form = this._fb.group({
       name: ['', [
         Validators.required,

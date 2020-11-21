@@ -38,12 +38,12 @@
                             <mat-label class="label">Select Category</mat-label>
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <input formControlName="categoryId" type="text" aria-label="Number" matInput
-                                    [formControl]="myControl" [matAutocomplete]="auto">
+                                    [formControl]="myControl" [matAutocomplete]="category">
                                 <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down
                                 </mat-icon>
-                                <mat-autocomplete #auto="matAutocomplete">
-                                    <mat-option *ngFor="let option of options" [value]="option">
-                                        {{option}}
+                                <mat-autocomplete #category="matAutocomplete">
+                                    <mat-option *ngFor="let category of categories" [value]="category.id">
+                                        {{category.name}}
                                     </mat-option>
                                 </mat-autocomplete>
                             </mat-form-field>
@@ -66,13 +66,13 @@
                             <mat-label class="label">Select Unit</mat-label>
                             <mat-form-field appearance="outline" class="example-full-width">
                                 <input formControlName="unitId" type="text" aria-label="Number" matInput
-                                    [formControl]="myControl" [matAutocomplete]="auto">
+                                    [formControl]="myControl" [matAutocomplete]="unit">
                                 <mat-icon style="color: #6d6d6d; font-size: 20px;" matSuffix>keyboard_arrow_down
                                 </mat-icon>
 
-                                <mat-autocomplete #auto="matAutocomplete">
-                                    <mat-option *ngFor="let option of options" [value]="option">
-                                        {{option}}
+                                <mat-autocomplete #unit="matAutocomplete">
+                                    <mat-option *ngFor="let unit of units" [value]="unit.id">
+                                        {{unit.name}}
                                     </mat-option>
                                 </mat-autocomplete>
                             </mat-form-field>
