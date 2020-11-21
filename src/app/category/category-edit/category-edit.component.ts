@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { CategoryService } from './../../services/category.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
@@ -16,7 +17,8 @@ export class CategoryEditComponent implements OnInit {
     private _fb: FormBuilder,
     private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<CategoryEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Unit) { }
+    @Inject(MAT_DIALOG_DATA) public data: Unit,
+    private _router: Router) { }
 
   ngOnInit(): void {
     this.form = this._fb.group({
@@ -39,8 +41,14 @@ export class CategoryEditComponent implements OnInit {
       console.log(response)
       this._snackBar.open('Updated successfully', '', { duration: 4000 });
       this.dialogRef.close();
+      this.redirectTo('/categories')
 
     })
+  }
+
+  redirectTo(uri: string) {
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this._router.navigate([uri]));
   }
 
 }

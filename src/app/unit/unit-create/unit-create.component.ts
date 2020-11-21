@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UnitEditComponent } from 'src/app/unit/unit-edit/unit-edit.component';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,8 @@ export class UnitCreateComponent implements OnInit {
   constructor(private _fb: FormBuilder,
     private _unitServices: UnitService,
     private _snackBar: MatSnackBar,
-    private dialogRef: MatDialogRef<UnitEditComponent>) { }
+    private dialogRef: MatDialogRef<UnitEditComponent>,
+    private _router: Router) { }
 
   ngOnInit(): void {
     this.form = this._fb.group({
@@ -32,7 +34,12 @@ export class UnitCreateComponent implements OnInit {
     this._unitServices.createUnits(body).subscribe(response => {
       this._snackBar.open('Added successfully', '', { duration: 4000 });
       this.dialogRef.close();
-
+      this.redirectTo('/units')
     })
+  }
+
+  redirectTo(uri: string) {
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this._router.navigate([uri]));
   }
 }

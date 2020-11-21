@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Unit } from './../../services/unit.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -20,7 +21,8 @@ export class UnitEditComponent implements OnInit {
     private _unitServices: UnitService,
     private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<UnitEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Unit) { }
+    @Inject(MAT_DIALOG_DATA) public data: Unit,
+    private _router: Router) { }
 
 
   ngOnInit(): void {
@@ -45,8 +47,13 @@ export class UnitEditComponent implements OnInit {
       console.log(response)
       this._snackBar.open('Updated successfully', '', { duration: 4000 });
       this.dialogRef.close();
-
+      this.redirectTo('units')
     })
+  }
+
+  redirectTo(uri: string) {
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this._router.navigate([uri]));
   }
 
 }

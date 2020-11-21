@@ -33,9 +33,13 @@ export class CategoryCreateComponent implements OnInit {
       this._snackBar.open('Added successfully', '', { duration: 4000 });
       this.dialogRef.close();
       this._router.navigate(['categories']);
+      this.redirectTo("/categories")
     })
+  }
 
-
+  redirectTo(uri: string) {
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this._router.navigate([uri]));
   }
 
 }
