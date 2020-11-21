@@ -35,7 +35,7 @@ export class CategoryEditComponent implements OnInit {
   }
 
   onEditCategory() {
-    this._categoryService.editCategory(this.data.id, JSON.stringify(this.form.value)).subscribe(response => {
+    this._categoryService.editCategory(this.data.id, this.form.value).subscribe(response => {
       console.log(response)
       this._snackBar.open('Updated successfully', '', { duration: 4000 });
       this.dialogRef.close();

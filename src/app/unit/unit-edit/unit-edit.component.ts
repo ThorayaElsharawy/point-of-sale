@@ -41,7 +41,7 @@ export class UnitEditComponent implements OnInit {
 
   onEditUnit() {
     console.log(this.data.id)
-    this._unitServices.editUnit(this.data.id, JSON.stringify(this.form.value)).subscribe(response => {
+    this._unitServices.editUnit(this.data.id, this.form.value).subscribe(response => {
       console.log(response)
       this._snackBar.open('Updated successfully', '', { duration: 4000 });
       this.dialogRef.close();

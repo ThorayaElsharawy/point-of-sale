@@ -58,7 +58,7 @@ export class ProductEditComponent implements OnInit {
     console.log(this.id);
     console.log(this.form.value);
 
-    this._productService.editProduct(this.id, JSON.stringify(this.form.value)).subscribe(
+    this._productService.editProduct(this.id, this.form.value).subscribe(
       response => {
         console.log(response);
         this._snackBar.open('Updated successfully', '', { duration: 4000 });
