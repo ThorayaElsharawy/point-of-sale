@@ -38,6 +38,9 @@ import { UnitCreateComponent } from './unit/unit-create/unit-create.component';
 import { UnitEditComponent } from './unit/unit-edit/unit-edit.component';
 import { UnitListComponent } from './unit/unit-list/unit-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CategoryCreateComponent } from './category/category-create/category-create.component';
+import { CategoryEditComponent } from './category/category-edit/category-edit.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
 
 
 
@@ -49,7 +52,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProductEditComponent,
     UnitCreateComponent,
     UnitEditComponent,
-    UnitListComponent
+    UnitListComponent,
+    CategoryCreateComponent,
+    CategoryEditComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,
