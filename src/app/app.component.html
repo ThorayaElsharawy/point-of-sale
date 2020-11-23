@@ -4,7 +4,7 @@
     <span class="example-spacer"></span>
     <div class="toolbar_content">
       <!-- time -->
-      <button mat-button>04:13 am 24-10-2020</button>
+      <button mat-button>{{ nowDate | date: 'medium' }}</button>
 
       <!-- language button -->
       <button class="toolbar_lang" mat-button [matMenuTriggerFor]="menu">
