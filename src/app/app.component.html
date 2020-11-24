@@ -1,12 +1,10 @@
-<mat-toolbar class="toolbar" color="primary">
+<!-- <mat-toolbar class="toolbar" color="primary">
   <mat-toolbar-row>
     <span class="toolbar_logo">POS</span>
     <span class="example-spacer"></span>
     <div class="toolbar_content">
-      <!-- time -->
       <button mat-button>{{ nowDate | date: 'medium' }}</button>
 
-      <!-- language button -->
       <button class="toolbar_lang" mat-button [matMenuTriggerFor]="menu">
         <img class="toolbar_flag" src="https://demo.phppointofsale.com/assets/assets/images/flags/english.png"
           alt="flag">
@@ -18,7 +16,6 @@
         <button mat-menu-item>Item 2</button>
       </mat-menu>
 
-      <!-- notification button -->
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon matBadge="10" matBadgeColor="warn">notification_important
         </mat-icon>
@@ -88,3 +85,6 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+ -->
+
+<app-login></app-login>

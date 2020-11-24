@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { UnitListComponent } from './unit/unit-list/unit-list.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,10 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
 import { CategoryListComponent } from './category/category-list/category-list.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: 'units',
     component: UnitListComponent

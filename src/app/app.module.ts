@@ -41,6 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CategoryCreateComponent } from './category/category-create/category-create.component';
 import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -55,7 +56,8 @@ import { CategoryListComponent } from './category/category-list/category-list.co
     UnitListComponent,
     CategoryCreateComponent,
     CategoryEditComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
